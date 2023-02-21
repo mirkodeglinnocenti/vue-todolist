@@ -29,6 +29,7 @@
                                     id="task"
                                     placeholder="Inserisci la cosa che devi fare"
                                     v-model="inputTask"
+                                    @keydown.enter="addTask"
                                 />
                             </div>
                             <div class="col-auto">
