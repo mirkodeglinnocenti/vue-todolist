@@ -14,27 +14,9 @@ const { createApp } = Vue
       }
     },
     methods: {
-        addTask () {
-
-            // creo la task come oggetto
-            let task = {
-                text: this.inputTask,
-                done: false,
-            }
-            // pusho l'oggetto dentro l'array
-            this.toDoList.push(task);
-            // resetto il valore input della task
-            this.inputTask = '';
-
-        },
-        taskEnd (oggetto) {
-            oggetto.done = true;
-            // console.log(oggetto.done);
-        },
-        deleteTask (index,) {
-            oggettoCorrente = index;
-            this.toDoList.splice(index, 1);
-        }
+        addTask,
+        taskEnd,
+        deleteTask,
     }
   }).mount('#app')
 
@@ -44,4 +26,31 @@ const { createApp } = Vue
 
 
 
-  
+//   Funzioni
+
+// aggiungere la task
+function addTask () {
+
+    // creo la task come oggetto
+    let task = {
+        text: this.inputTask,
+        done: false,
+    }
+    // pusho l'oggetto dentro l'array
+    this.toDoList.push(task);
+    // resetto il valore input della task
+    this.inputTask = '';
+
+}
+
+// cambiare il valore di done
+function taskEnd (oggetto) {
+    oggetto.done = true;
+    // console.log(oggetto.done);
+}
+
+// cancellare la task
+function deleteTask (index) {
+    oggettoCorrente = index;
+    this.toDoList.splice(index, 1);
+}
