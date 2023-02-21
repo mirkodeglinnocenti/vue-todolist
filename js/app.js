@@ -22,7 +22,7 @@ const { createApp } = Vue
                 done: false,
             }
             // pusho l'oggetto dentro l'array
-            toDoList.push(task);
+            this.toDoList.push(task);
             // resetto il valore input della task
             this.inputTask = '';
 
@@ -30,6 +30,10 @@ const { createApp } = Vue
         taskEnd (oggetto) {
             oggetto.done = true;
             // console.log(oggetto.done);
+        },
+        deleteTask (index,) {
+            oggettoCorrente = index;
+            this.toDoList.splice(index, 1);
         }
     }
   }).mount('#app')
