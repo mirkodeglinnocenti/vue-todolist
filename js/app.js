@@ -31,10 +31,17 @@ const { createApp } = Vue
 // aggiungere la task
 function addTask () {
 
+    let text = this.inputTask.trim() // trim serve per togliere gli spazi vuoti all'inizio e alla fine
+
+    // impedire di aggiungere una stringa vuota
+    if (text === '') {
+      return
+    }
+
     // creo la task come oggetto
     let task = {
-        text: this.inputTask,
-        done: false,
+      text: this.inputTask,
+      done: false,
     }
     // pusho l'oggetto dentro l'array
     this.toDoList.push(task);
@@ -45,8 +52,14 @@ function addTask () {
 
 // cambiare il valore di done
 function taskEnd (oggetto) {
+
+  if (oggetto.done === false) {
     oggetto.done = true;
-    // console.log(oggetto.done);
+  } else {
+    oggetto.done = false;
+  }
+    
+  // console.log(oggetto.done);
 }
 
 // cancellare la task

@@ -42,15 +42,17 @@
                     <div class="body w-50 center-x">
                         <ul class="list-group" v-for="(toDoItem, index) in toDoList">
                             
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <label 
-                                class="form-check-label" 
-                                for="firstCheckbox"
-                                @click="taskEnd(toDoItem)" 
-                                :class="toDoItem.done === true ? 'text-decoration-line-through' : '' ">
-                                {{toDoItem.text}}
-                            </label>
-                            <button @click="deleteTask(index)" class="btn btn-danger">Elimina</button>
+                            <li class="list-group-item d-flex justify-content-between align-items-center"  @click="taskEnd(toDoItem)" >
+                                
+                                <label 
+                                    class="form-check-label" 
+                                    for="firstCheckbox"
+                                    :class="toDoItem.done === true ? 'text-decoration-line-through' : '' ">
+                                    {{toDoItem.text}}
+                                </label>
+
+                                <button @click.stop="deleteTask(index)" class="btn btn-danger">Elimina</button>
+                            </li>
                         </ul>
                     </div>
                     
